@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<StoreContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("StoreContext") ?? throw new InvalidOperationException("Connection string 'StoreContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("HackDayStoreDbKey") ?? throw new InvalidOperationException("Connection string 'StoreContext' not found.")));
 
 builder.Services.AddCors(options => 
     options.AddPolicy(name: "AllowEverything", builder => 
